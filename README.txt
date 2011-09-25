@@ -72,9 +72,11 @@ packages and running the components of londonriots itself.
 Installing NLTK
 ---------------
 
-NLTK (Natural Language Toolkit) will be used to extract useful words from the feeds in order to help us find patterns. This is can be installed with:
+NLTK (Natural Language Toolkit) will be used to extract useful words from
+the feeds in order to help us find patterns. This is can be installed
+with:
 
-	./dev.env/bin/pip install http://nltk.googlecode.com/files/nltk-2.0.1rc1.tar.gz
+        ./dev.env/bin/pip install http://nltk.googlecode.com/files/nltk-2.0.1rc1.tar.gz
 
 Installing and setup of Postgres
 --------------------------------
@@ -83,24 +85,24 @@ The easiest way to install Postgres is to use homebrew. You can find more inform
 
 Once, you have homebrew installed, Postgres installation is as easy as:
 
-	brew install postgres
+        brew install postgres
 
 After the installation is complete, you have to run the following commands:
 
-	initdb --username=postgres /usr/local/var/postgres
-	mkdir -p ~/Library/LaunchAgents
-	cp /usr/local/Cellar/postgresql/9.0.4/org.postgresql.postgres.plist ~/Library/LaunchAgents/
-	launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist
-	createuser --createdb --encrypted --pwprompt --no-superuser --username=postgres --host=localhost devlondonriots
-	createdb --host=localhost --username=devlondonriots devlondonriots
+        initdb --username=postgres /usr/local/var/postgres
+        mkdir -p ~/Library/LaunchAgents
+        cp /usr/local/Cellar/postgresql/9.0.4/org.postgresql.postgres.plist ~/Library/LaunchAgents/
+        launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist
+        createuser --createdb --encrypted --pwprompt --no-superuser --username=postgres --host=localhost devlondonriots
+        createdb --host=localhost --username=devlondonriots devlondonriots
 
 If it doesn't already exist, create /etc/sysctl.conf and put the following values in that file:
 
-	kern.sysv.shmmax=64000000
-	kern.sysv.shmmin=1
-	kern.sysv.shmmni=256
-	kern.sysv.shmseg=64
-	kern.sysv.shmall=65536
+        kern.sysv.shmmax=64000000
+        kern.sysv.shmmin=1
+        kern.sysv.shmmni=256
+        kern.sysv.shmseg=64
+        kern.sysv.shmall=65536
 
 These commands creates a database, a database user, an automatic launcher for postgres and sets the shared memory settings for postgres
 
@@ -112,9 +114,9 @@ Next, we'll install the londonriots package in "development" mode, which
 downloads and installs all of the external packages, and then adds
 londonriots itself to the virtualenv for testing::
 
-	./dev.env/bin/python setup.py develop
+        ./dev.env/bin/python setup.py develop
 
 Running The Tests
 -----------------
 
-	./dev.en/bin/python setup.py test
+        ./dev.en/bin/python setup.py test
