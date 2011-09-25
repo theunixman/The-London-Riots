@@ -17,7 +17,7 @@ requires = [
     'feedparser',
     'feedcache',
     'pg8000',
-    'BeautifulSoup',
+    'justext',
     'nltk'
     ]
 
